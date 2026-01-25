@@ -216,19 +216,15 @@ export default function Page(): React.ReactElement {
 
       {/* Hero */}
       <main>
-        <section className="relative h-[56vh] md:h-[64vh] bg-[url('/hero.jpg')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/10"></div>
-          <div className="container mx-auto relative z-10 h-full flex items-center px-4">
-            <div className="max-w-2xl text-white">
-              <h2 className="text-3xl md:text-5xl font-extrabold">Find trusted cannabis retailers, learn safely, and join our community</h2>
-              <p className="mt-4 text-lg md:text-xl text-gray-100">Local stores. Expert guidance. Events and promotions near you.</p>
-              <div className="mt-6 flex gap-3">
-                <a href="/stores" className="px-5 py-3 bg-green-600 hover:bg-green-700 rounded text-white font-medium">Explore Stores</a>
-                <button onClick={() => document.getElementById("trending")?.scrollIntoView()} className="px-4 py-3 bg-white/10 hover:bg-white/20 rounded text-white">Top 10 Trending</button>
-              </div>
-            </div>
-          </div>
+        // app/page.tsx snippet
+        <section className="hero">
+         <div className="hero-inner">
+          <h1>Future-ready analytics</h1>
+          <p>Actionable insights with a neon edge.</p>
+          <Button>Get started</Button>
+         </div>
         </section>
+
 
         {/* Partner Ads Carousel */}
         <section className="container mx-auto px-4 py-8">

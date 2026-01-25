@@ -1,4 +1,17 @@
-import Link from "next/link"
+// components/Header.tsx
+"use client";
+import Link from "next/link";
+
+export default function Header(){
+  return (
+    <header style={{background: "var(--blue-deep)", color: "var(--text)"}}>
+      <nav className="nav">
+        <Link href="/"><a className="nav-link">Home</a></Link>
+        <Link href="/about"><a className="nav-link">About</a></Link>
+      </nav>
+    </header>
+  );
+}
 
 export default function NavBar() {
   return (
