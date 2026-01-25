@@ -1,3 +1,6 @@
+// app/page.tsx (top of file)
+import Button from "@/components/Button"; // or "../components/Button" if relative
+
 // app/page.tsx
 "use client";
 
