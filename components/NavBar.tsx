@@ -1,28 +1,22 @@
-// components/Header.tsx
+// components/NavBar.tsx
 "use client";
+
 import Link from "next/link";
+import React from "react";
+import styles from "./NavBar.module.css"; // optional: create a module or remove if not used
 
-export default function Header(){
+export default function NavBar(): React.ReactElement {
   return (
-    <header style={{background: "var(--blue-deep)", color: "var(--text)"}}>
-      <nav className="nav">
-        <Link href="/"><a className="nav-link">Home</a></Link>
-        <Link href="/about"><a className="nav-link">About</a></Link>
-      </nav>
-    </header>
-  );
-}
-
-export default function NavBar() {
-  return (
-    <nav className="flex gap-6 p-4 bg-green-900 text-white">
-      <Link href="/">Home</Link>
-      <Link href="/products">Products</Link>
-      <Link href="/about">About</Link>
-      <Link href="/contact">Contact</Link>
-      <Link href="/affiliates">Affiliates</Link>
-      <Link href="/kiosks">Kiosks</Link>
-      <Link href="/cafe">Cafe</Link>
+    <nav className={styles.nav ?? "nav"}>
+      <ul className={styles.list ?? "nav-list"}>
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="/products">Products</Link></li>
+        <li><Link href="/about">About</Link></li>
+        <li><Link href="/contact">Contact</Link></li>
+        <li><Link href="/affiliates">Affiliates</Link></li>
+        <li><Link href="/kiosks">Kiosks</Link></li>
+        <li><Link href="/cafe">Cafe</Link></li>
+      </ul>
     </nav>
-  )
+  );
 }

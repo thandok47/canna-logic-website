@@ -1,0 +1,16 @@
+/* components/NavBar.module.css */
+.nav {
+  background: var(--blue-deep);
+  color: var(--text);
+  padding: 12px 20px;
+}
+.nav-list {
+  display:flex;
+  gap:18px;
+  list-style:none;
+  margin:0;
+  padding:0;
+  align-items:center;
+}
+.nav-list a { color: var(--muted-text); text-decoration:none; }
+.nav-list a:hover { color: var(--text); text-decoration:underline; }

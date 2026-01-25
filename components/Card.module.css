@@ -1,0 +1,110 @@
+/* components/Card.module.css */
+:root{
+  --bg: #0A0A0A;
+  --blue-deep: #0B3D91;
+  --blue-mid: #1E5FAF;
+  --green-cyber: #00FF9C;
+  --neon-cyan: #00E5FF;
+  --neon-magenta: #FF2D95;
+  --text: #F5F7FA;
+  --muted-text: #B8C7E6;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(11,61,145,0.06), rgba(30,95,175,0.02));
+  border-radius: 12px;
+  padding: 16px;
+  color: var(--text);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  transition: transform .12s ease, box-shadow .18s ease;
+  overflow: hidden;
+  min-width: 260px;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,229,255,0.06), 0 0 18px rgba(0,229,255,0.08);
+}
+
+.media{
+  height: 160px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 12px;
+  filter: saturate(1.05);
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.45);
+}
+
+.mediaPlaceholder{
+  height: 160px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(11,61,145,0.12), rgba(30,95,175,0.06));
+}
+
+.body{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.title{
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tag{
+  background: rgba(255,45,149,0.12);
+  color: var(--neon-magenta);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.description{
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.actions{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.cta{
+  background: var(--green-cyber);
+  color: #071012;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .18s ease;
+}
+
+.cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,229,255,0.18), 0 0 12px rgba(0,255,156,0.12);
+}
+
+.cta:focus{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0,229,255,0.12);
+}

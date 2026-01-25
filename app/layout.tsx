@@ -1,18 +1,19 @@
-import "./globals.css"
-import NavBar from "../components/NavBar"
+// app/layout.tsx
+import "./globals.css";
+import Header from "../components/Header";
 
 export const metadata = {
   title: "Canna Logic Store",
-  description: "Cannabis online store",
-}
+  description: "Canna Logic storefront and dashboard",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-zinc-50 dark:bg-black">
-        <NavBar />
-        {children}
+      <body>
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
-  )
+  );
 }
