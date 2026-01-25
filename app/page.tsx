@@ -1,8 +1,7 @@
+"use client";
 // app/page.tsx (top of file)
 import Button from "@/components/Button"; // or "../components/Button" if relative
 
-// app/page.tsx
-"use client";
 
 import React, { useEffect, useState, useRef } from "react";
 import { supabase } from "@/lib/supabaseClient";
