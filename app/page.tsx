@@ -1,11 +1,8 @@
+// app/page.tsx
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const SUPABASE_ANON = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase: SupabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON);
+import { supabase } from "@/lib/supabaseClient";
 
 type Ad = {
   id: number;
@@ -55,7 +52,7 @@ type EduBubble = {
   link?: string;
 };
 
-export default function Page(): JSX.Element {
+export default function Page(): React.ReactElement {
   const [user, setUser] = useState<any | null>(null);
   const [ads, setAds] = useState<Ad[]>([]);
   const [events, setEvents] = useState<EventItem[]>([]);
