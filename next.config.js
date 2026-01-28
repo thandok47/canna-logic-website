@@ -1,9 +1,7 @@
-/** next.config.js */
+// next.config.js
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true
-  }
+  // add other valid options here if needed
 }
 
 export default nextConfig
