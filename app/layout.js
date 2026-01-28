@@ -1,65 +1,69 @@
-// /app/layout.js
-import './globals.css'
-import './layout.css'
-import Link from 'next/link'
-import Image from 'next/image'
-import { AuthProvider } from "@/components/AuthProvider"
+// app/layout.js
+import "./globals.css"
+import Link from "next/link"
+import { AuthProvider } from "../components/AuthProvider"
+
 export const metadata = {
-  title: 'Canna Logic',
-  description: 'Compliance-first cannabis platform — education, community, and commerce for RSA.',
+  title: "Canna Logic",
+  description: "Compliance-friendly cannabis industry platform",
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="root-layout">
-        <header className="container site-nav" role="banner" aria-label="Top navigation">
-          <div className="brand-and-toggle" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Link href="/" className="brand" aria-label="Canna Logic home">
-              {/*/public/canna-logic-logo.svg*/}
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                <Image src="/logo.svg" alt="Canna Logic logo" width={36} height={36} priority />
-                <span style={{ fontWeight: 800, color: 'var(--accent)' }}>Canna Logic</span>
-              </span>
-            </Link>
-          </div>
+      <body className="min-h-screen bg-white text-slate-900">
         <AuthProvider>
-           {children}
-        </AuthProvider> 
-          <nav className="nav-links" role="navigation" aria-label="Primary">
-            <Link href="/learn" className="nav-link">Learn</Link>
-            <Link href="/shop" className="nav-link">Shop</Link>
-            <Link href="/events" className="nav-link">Events</Link>
-            <Link href="/investor" className="nav-link">Investors</Link>
-            <Link href="/docs" className="nav-link">Developers</Link>
-          </nav>
+          {/* Global header */}
+          <header className="w-full border-b bg-white">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex h-16 items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <Link href="/" className="flex items-center gap-3">
+                    <img src="/logo.svg" alt="Canna Logic" className="h-8 w-auto" />
+                    <span className="font-semibold tracking-wide">CANNA LOGIC</span>
+                  </Link>
+                </div>
 
-          <div className="nav-actions" style={{ display: 'flex', gap: 8 }}>
-            <Link href="/auth/signin" className="btn btn-ghost" aria-label="Sign in to Canna Logic">Sign in</Link>
-            <Link href="/auth/register" className="btn btn-primary" aria-label="Register for Canna Logic">Get started</Link>
-          </div>
-        </header>
+                <nav className="flex items-center gap-4">
+                  <Link href="/" className="text-sm font-medium hover:underline">
+                    Home
+                  </Link>
+                  <Link href="/learn" className="text-sm font-medium hover:underline">
+                    Learn
+                  </Link>
+                  <Link href="/shop" className="text-sm font-medium hover:underline">
+                    Shop
+                  </Link>
+                  <Link href="/events" className="text-sm font-medium hover:underline">
+                    Events
+                  </Link>
+                  <Link href="/docs" className="text-sm font-medium hover:underline">
+                    Docs
+                  </Link>
 
-        <main className="main-content container" role="main">
-          {children}
-        </main>
-
-        <footer className="site-footer container" role="contentinfo">
-          <div className="footer-inner">
-            <div className="footer-left">
-              <div style={{ fontWeight: 700, color: 'var(--accent)' }}>Canna Logic</div>
-              <div className="muted" style={{ marginTop: 6 }}>© {new Date().getFullYear()} Canna Logic — Compliance first</div>
+                  {/* Auth actions (static placeholders). Replace with a client-side component that reads session for dynamic behavior. */}
+                  <Link
+                    href="/auth/signin"
+                    className="rounded-md px-3 py-1 text-sm font-medium hover:bg-slate-100"
+                  >
+                    Sign in
+                  </Link>
+                  <Link
+                    href="/auth/register"
+                    className="ml-2 inline-flex items-center rounded-md bg-green-600 px-3 py-1 text-sm font-semibold text-white hover:bg-green-700"
+                  >
+                    Get started
+                  </Link>
+                </nav>
+              </div>
             </div>
+          </header>
 
-            <div className="footer-right" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-              <nav aria-label="Footer links" style={{ display: 'flex', gap: 12 }}>
-                <Link href="/privacy" className="muted">Privacy</Link>
-                <Link href="/terms" className="muted">Terms</Link>
-                <Link href="/contact" className="muted">Contact</Link>
-              </nav>
-            </div>
-          </div>
-        </footer>
+          {/* App content */}
+          <main className="min-h-[calc(100vh-64px)]">
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   )

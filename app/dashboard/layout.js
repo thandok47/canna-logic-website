@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { supabase } from "@/lib/supabaseClient"
-import { useAuth } from "@/components/AuthProvider"
 import { useEffect, useState } from "react"
+import { supabase } from "../../lib/supabaseClient"        // relative import to lib
+import { useAuth } from "../../components/AuthProvider"   // relative import to components
 
 export default function DashboardLayout({ children }) {
   const { session } = useAuth()
@@ -11,15 +11,21 @@ export default function DashboardLayout({ children }) {
 
   useEffect(() => {
     const fetchRole = async () => {
-      if (session?.user) {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("role")
-          .eq("id", session.user.id)
-          .single()
-        if (!error && data) setRole(data.role)
+      if (!session?.user) {
+        setRole(null)
+        return
       }
+
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", session.user.id)
+        .single()
+
+      if (!error && data) setRole(data.role)
+      else setRole(null)
     }
+
     fetchRole()
   }, [session])
 
@@ -30,6 +36,7 @@ export default function DashboardLayout({ children }) {
         <div className="p-4 text-xl font-bold border-b border-gray-700">
           Canna Logic
         </div>
+
         <nav className="flex-1 p-4 space-y-2">
           <Link href="/dashboard" className="block hover:bg-gray-800 p-2 rounded">
             Home
@@ -109,6 +116,7 @@ export default function DashboardLayout({ children }) {
             {session?.user?.email || "Dashboard"}
           </h1>
         </header>
+
         <section className="p-6">{children}</section>
       </main>
     </div>
