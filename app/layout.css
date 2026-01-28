@@ -1,0 +1,109 @@
+/* Layout-specific styles used by /app/layout.js and header/footer components */
+
+/* Root layout wrapper */
+.root-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(47,184,74,0.02), transparent 8%),
+              radial-gradient(900px 400px at 90% 90%, rgba(47,184,74,0.01), transparent 6%),
+              var(--bg);
+}
+
+/* Top navigation */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+.site-nav .nav-links {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: .4rem .6rem;
+  border-radius: .5rem;
+}
+.site-nav a:hover { color: #fff; background: rgba(255,255,255,0.02); }
+
+/* Mobile nav collapse */
+@media (max-width: 640px) {
+  .site-nav .nav-links { display: none; }
+}
+
+/* Main content area */
+.main-content {
+  flex: 1 1 auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Hero layout helper */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+}
+
+/* Promo grid spacing */
+.promo-grid {
+  margin-top: 1rem;
+}
+
+/* Role highlight card tweaks */
+.role-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 10rem;
+}
+
+/* Footer layout */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+@media (min-width: 768px) {
+  .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+/* Small responsive helpers */
+.stack-sm { display: block; }
+@media (min-width: 640px) { .stack-sm { display: flex; gap: 1rem; } }
+
+/* Utility: visually hidden (for screen readers) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Error / alert */
+.alert {
+  background: linear-gradient(180deg, rgba(255,0,0,0.06), rgba(255,0,0,0.03));
+  border: 1px solid rgba(255,0,0,0.12);
+  color: #ffdede;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  font-size: .95rem;
+}
