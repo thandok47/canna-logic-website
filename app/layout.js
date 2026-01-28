@@ -3,7 +3,7 @@ import './globals.css'
 import './layout.css'
 import Link from 'next/link'
 import Image from 'next/image'
-
+import { AuthProvider } from "@/components/AuthProvider"
 export const metadata = {
   title: 'Canna Logic',
   description: 'Compliance-first cannabis platform — education, community, and commerce for RSA.',
@@ -16,14 +16,16 @@ export default function RootLayout({ children }) {
         <header className="container site-nav" role="banner" aria-label="Top navigation">
           <div className="brand-and-toggle" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <Link href="/" className="brand" aria-label="Canna Logic home">
-              {/* Replace with your logo in /public/logo.svg or similar */}
+              {/*/public/canna-logic-logo.svg*/}
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 <Image src="/logo.svg" alt="Canna Logic logo" width={36} height={36} priority />
                 <span style={{ fontWeight: 800, color: 'var(--accent)' }}>Canna Logic</span>
               </span>
             </Link>
           </div>
-
+        <AuthProvider>
+           {children}
+        </AuthProvider> 
           <nav className="nav-links" role="navigation" aria-label="Primary">
             <Link href="/learn" className="nav-link">Learn</Link>
             <Link href="/shop" className="nav-link">Shop</Link>
